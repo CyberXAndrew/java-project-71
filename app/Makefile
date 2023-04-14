@@ -4,5 +4,8 @@ cs: # запуск checkstyleMain
 	./gradlew checkstyleMain
 clean:
 	./gradlew clean build
-
+c:
+	./gradlew clean
+b:
+	./gradlew installDist
 
