@@ -1,5 +1,7 @@
 plugins {
     id 'application'
+    id 'checkstyle'
+    id 'jacoco'
 }
 
 group 'hexlet.code'
@@ -10,7 +12,9 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testImplementation 'org.assertj:assertj-core:3.22.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     implementation 'info.picocli:picocli:4.7.2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
@@ -26,4 +30,8 @@ application {
 
 compileJava {
     options.release = 17
+}
+
+checkstyle {
+    toolVersion '9.2.1'
 }

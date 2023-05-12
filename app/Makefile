@@ -8,4 +8,6 @@ c:
 	./gradlew clean
 b:
 	./gradlew installDist
+build:
+	.PHONY: build
 
