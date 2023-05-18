@@ -23,7 +23,8 @@ public class App implements Callable<Integer> {
 ////    private boolean helpRequested = false;
     @Override
     public Integer call() throws Exception {
-        System.out.println(Differ.generate(filepath1, filepath2)); //format параметр
+        String format = Differ.defineFileFormat(filepath1);
+        System.out.println(Differ.generate(filepath1, filepath2, format)); //format параметр
         return 0;
 //        try {
 //            System.out.println(Differ.generate(filepath1, filepath2, format));
