@@ -15,18 +15,17 @@ public class App implements Callable<Integer> {
     private String filepath1;
     @Parameters(index = "1", paramLabel = "filepath2", description = "path to second file")
     private String filepath2;
-    @Option(names = {"-f", "--format"}, defaultValue = "stylish", paramLabel = "format", description = "output format [default: stylish]")
+    @Option(names = {"-f", "--format"}, defaultValue = "stylish", paramLabel = "format",
+            description = "output format [default: stylish]")
     private String format;
-////    @Option(names = {"-h", "--help"}, versionHelp = true, description = "Show this help message and exit.")
-////    boolean versionInfoRequested;
-////    @Option(names = {"-v", "--version"}, usageHelp = true, description = "Print version information and exit.")
-////    private boolean helpRequested = false;
+
     @Override
     public Integer call() throws Exception {
-        String format = Differ.defineFileFormat(filepath1);
-        System.out.println(Differ.generate(filepath1, filepath2, format)); //format параметр
+        String format = Differ.getFormat(filepath1, filepath2);
+        System.out.println(Differ.generate(filepath1, filepath2, format));
         return 0;
 //        try {
+//            String format = Differ.getFormat(filepath1, filepath2);
 //            System.out.println(Differ.generate(filepath1, filepath2, format));
 //            return 0;
 //        } catch (Exception exception) {
