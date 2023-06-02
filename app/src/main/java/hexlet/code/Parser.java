@@ -67,7 +67,7 @@ public class Parser {
     public static ObjectMapper buildMapper(String format) throws IOException {
         if (format.equals("json")) {
             return new ObjectMapper();
-        } else if (format.equals("yaml")) {
+        } else if (format.equals("yaml") || format.equals("yml")) {
             return new ObjectMapper(new YAMLFactory());
         } else {
             throw new IOException("Wrong file format");
