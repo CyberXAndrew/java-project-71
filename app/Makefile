@@ -9,5 +9,6 @@ c:
 b:
 	./gradlew installDist
 build:
-	.PHONY: build
+	./gradlew build
+.PHONY: build
 

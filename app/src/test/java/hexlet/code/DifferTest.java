@@ -11,12 +11,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DifferTest {
     private static final String DEFAULT_FORMAT = "stylish";
     private static final String PLAIN_FORMAT = "plain";
+    private static final String JSON_FORMAT = "json";
     private static String jsonFile1;
     private static String jsonFile2;
     private static String yamlFile3;
     private static String yamlFile4;
     private static String stylishParsingResult;
     private static String plainParsingResult;
+    private static String jsonParsingResult;
     @BeforeAll
     public static void beforeAll() throws Exception {
 //        defaultFormat = "stylish";
@@ -24,8 +26,9 @@ public class DifferTest {
         jsonFile2 = "src/test/resources/file2.json";
         yamlFile3 = "src/test/resources/file3.yaml";
         yamlFile4 = "src/test/resources/file4.yaml";
-        stylishParsingResult = Files.readString(Paths.get("src/test/java/hexlet/code/jsonParsingResult"));
-        plainParsingResult = Files.readString(Paths.get("src/test/java/hexlet/code/yamlParsingResult"));
+        stylishParsingResult = Files.readString(Paths.get("src/test/resources/stylishParsingResult"));
+        plainParsingResult = Files.readString(Paths.get("src/test/resources/plainParsingResult"));
+        jsonParsingResult = Files.readString(Paths.get("src/test/resources/jsonParsingResult"));
     }
     @Test
     public void defaultFormatTest() throws Exception {
@@ -50,8 +53,11 @@ public class DifferTest {
         assertThat(yamlResult).isEqualTo(plainParsingResult);
     }
     @Test
-    public void diffTestPlain() throws Exception {
-
+    public void jsonFormatTest() throws Exception {
+        String jsonResult = Differ.generate(jsonFile1, jsonFile2, JSON_FORMAT);
+        assertThat(jsonResult).isEqualTo(jsonParsingResult);
+        String yamlResult = Differ.generate(yamlFile3, yamlFile4, JSON_FORMAT);
+        assertThat(yamlResult).isEqualTo(jsonParsingResult);
     }
 }
 
