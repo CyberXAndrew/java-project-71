@@ -5,13 +5,17 @@ import java.util.Map;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
-        Map<String, Object> map1 = Parser.getData(filepath1);
-        Map<String, Object> map2 = Parser.getData(filepath2);
         if (!checkFileFormats(filepath1, filepath2)) {
             throw new Exception("Different file formats!");
         }
-        List<Map<String, Object>> data = Parser.parse(map1, map2); //вернет List<str obj>
-        return Formatter.chooseFormat(data, format);
+        Map<String, Object> map1 = Parser.getData(filepath1);
+        Map<String, Object> map2 = Parser.getData(filepath2);
+        List<Map<String, Object>> data = Parser.parse(map1, map2);
+        return Formatter.applyDisplayFormat(data, format);
+    }
+
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
     }
 
     public static String getFileFormat(String filepath) {

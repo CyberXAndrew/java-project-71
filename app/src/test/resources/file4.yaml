@@ -12,11 +12,8 @@ numbers2:
   - 33
   - 44
   - 55
-id:
-#default: [value1, value2]
-default:
-  - value1
-  - value2
+id: null
+default: [value1, value2]
 checked: true
 numbers4:
   - 4

@@ -33,7 +33,8 @@ public class Parser {
                 map.put("oldValue", map1.get(key));
                 map.put("status", "no changes");
 //                result.append(String.format("    %s: %s\n", key, map1.get(key)));
-            } else if (map1.containsKey(key) && map2.containsKey(key) && !map1.get(key).equals(map2.get(key))) {
+            } else if (map1.containsKey(key) && map2.containsKey(key) && !Objects.equals(map1.get(key),
+                    map2.get(key))) {
                 map.put("key", key);  //не совпадут по значению
                 map.put("oldValue", map1.get(key));
                 map.put("newValue", map2.get(key));
