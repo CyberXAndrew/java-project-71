@@ -70,7 +70,7 @@ public class Parser {
         } else if (format.equals("yaml") || format.equals("yml")) {
             return new ObjectMapper(new YAMLFactory());
         } else {
-            throw new IOException("Wrong file format");
+            throw new IOException("Unsupporting file format");
         }
     }
 }

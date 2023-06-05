@@ -21,7 +21,6 @@ public class DifferTest {
     private static String jsonParsingResult;
     @BeforeAll
     public static void beforeAll() throws Exception {
-//        defaultFormat = "stylish";
         jsonFile1 = "src/test/resources/file1.json";
         jsonFile2 = "src/test/resources/file2.json";
         yamlFile3 = "src/test/resources/file3.yaml";

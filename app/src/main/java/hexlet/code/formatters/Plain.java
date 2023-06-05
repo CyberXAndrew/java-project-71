@@ -7,7 +7,7 @@ public class Plain {
     public static String makePlain(List<Map<String, Object>> data) {
         StringBuilder sb = new StringBuilder();
         for (Map<String, Object> map : data) {
-            if (sb.length() != 0) {
+            if (sb.length() != 0 && !map.get("status").equals("no changes")) {
                 sb.append("\n");
             }
             if (map.get("status").equals("changed")) {
