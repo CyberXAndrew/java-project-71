@@ -6,9 +6,12 @@
 This application compares two json or yaml files and shows the difference in three selectable display formats: stylish, plain and json.
 
 ### Asciinema's program execuiton:
-#### [YAML - default/stylish](https://asciinema.org/a/589167)
-#### [json - default/stylish](https://asciinema.org/a/589166)
-#### [YAML - plain](https://asciinema.org/a/589192)
-#### [json - plain](https://asciinema.org/a/589191)
-#### [YAML - json](https://asciinema.org/a/589776)
-#### [json - json](https://asciinema.org/a/589775)
+#### Default/stylish:
+##### [YAML](https://asciinema.org/a/589167)
+##### [json](https://asciinema.org/a/589166)
+#### Plain:
+##### [YAML](https://asciinema.org/a/589192)
+##### [json](https://asciinema.org/a/589191)
+#### JSON:
+##### [YAML](https://asciinema.org/a/589776)
+##### [json](https://asciinema.org/a/589775)
