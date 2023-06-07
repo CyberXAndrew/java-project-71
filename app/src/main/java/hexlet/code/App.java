@@ -10,8 +10,8 @@ import java.util.concurrent.Callable;
         description = "Compares two configuration files and shows a difference.")
 
 public class App implements Callable<Integer> {
-    private final int executionIndex = 0;
-    private final int errorIndex = 1;
+    private static final int EXECUTION_INDEX = 0;
+    private static final int ERROR_INDEX = 1;
     @Parameters(index = "0", paramLabel = "filepath1", description = "path to first file")
     private String filepath1;
     @Parameters(index = "1", paramLabel = "filepath2", description = "path to second file")
@@ -24,10 +24,10 @@ public class App implements Callable<Integer> {
     public final Integer call() {
         try {
             System.out.println(Differ.generate(filepath1, filepath2, format));
-            return executionIndex;
+            return EXECUTION_INDEX;
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return errorIndex;
+            return ERROR_INDEX;
         }
     }
 

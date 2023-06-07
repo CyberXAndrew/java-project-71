@@ -1,16 +1,23 @@
 package hexlet.code;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
-        if (!checkFileFormats(filepath1, filepath2)) {
-            throw new Exception("Different file formats!");
-        }
-        Map<String, Object> map1 = Parser.getData(filepath1);
-        Map<String, Object> map2 = Parser.getData(filepath2);
-        List<Map<String, Object>> data = Parser.parse(map1, map2);
+        String fileContent1 = getContent(filepath1);
+        String fileFormat1 = getFileFormat(filepath1);
+        Map<String, Object> map1 = Parser.parse(fileContent1, fileFormat1);
+
+        String fileContent2 = getContent(filepath2);
+        String fileFormat2 = getFileFormat(filepath2);
+        Map<String, Object> map2 = Parser.parse(fileContent2, fileFormat2);
+
+        List<Map<String, Object>> data = DiffBuilder.buildDifference(map1, map2);
         return Formatter.applyDisplayFormat(data, format);
     }
 
@@ -18,12 +25,15 @@ public class Differ {
         return generate(filepath1, filepath2, "stylish");
     }
 
+    public static String getContent(String filepath) throws IOException {
+        return Files.readString(makeAbsolutePath(filepath));
+    }
     public static String getFileFormat(String filepath) {
-        String absPath = Parser.makeAbsolutePath(filepath).toString();
+        String absPath = makeAbsolutePath(filepath).toString();
         return absPath.substring(absPath.indexOf(".") + 1);
     }
-
-    public static boolean checkFileFormats(String filepath1, String filepath2) {
-        return getFileFormat(filepath1).equals(getFileFormat(filepath2));
+    public static Path makeAbsolutePath(String filepath) {
+        Path filePath = Paths.get(filepath);
+        return filePath.toAbsolutePath().normalize();
     }
 }

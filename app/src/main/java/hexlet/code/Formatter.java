@@ -12,7 +12,7 @@ public class Formatter {
             case "stylish" -> Stylish.makeStylish(data);
             case "plain" -> Plain.makePlain(data);
             case "json" -> Json.makeJson(data);
-            default -> throw new IllegalArgumentException("Unknown output format");
+            default -> throw new IllegalArgumentException("Unknown output format: " + format);
         };
     }
 }
