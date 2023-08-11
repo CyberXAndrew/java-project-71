@@ -6,6 +6,9 @@
 | Maintainability | [![Maintainability](https://api.codeclimate.com/v1/badges/ef8ba98d297869af9a27/maintainability)](https://codeclimate.com/github/CyberXAndrew/java-project-71/maintainability)        |
 | Code coverage   | [![Test Coverage](https://api.codeclimate.com/v1/badges/ef8ba98d297869af9a27/test_coverage)](https://codeclimate.com/github/CyberXAndrew/java-project-71/test_coverage) |
 
+---
+
+### Description
 This application compares two json or yaml (yml) files and shows the difference in three selectable display formats:
 stylish, plain and json.
 
