@@ -30,7 +30,7 @@ application {
 }
 
 compileJava {
-    options.release = 20
+    options.release = 17
 }
 
 checkstyle {
